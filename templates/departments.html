@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Departments</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial;
+            background: linear-gradient(to right, #2c2c54, #706fd3);
+        }
+
+        .container {
+            width: 80%;
+            margin: 60px auto;
+            background: #eaeaea;
+            padding: 30px;
+            border-radius: 15px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        /* Buttons */
+        .btn {
+            padding: 10px 18px;
+            border: none;
+            border-radius: 8px;
+            color: white;
+            text-decoration: none;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .add-btn {
+            background: #9124a0;
+        }
+
+        .home-btn {
+            background: #a112cc;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        .edit-btn {
+            background: #22c55e;
+        }
+
+        .delete-btn {
+            background: #f59e0b;
+        }
+
+        .btn:hover {
+            opacity: 0.8;
+        }
+
+        /* Table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        thead {
+            background: #1e293b;
+            color: white;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: center;
+        }
+
+        tbody tr {
+            border-bottom: 1px solid #ccc;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>Department List</h2>
+
+    <a href="/departments/add/" class="btn add-btn">Add Department</a>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Code</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+
+        <tbody>
+        {% for d in departments %}
+            <tr>
+                <td>{{ d.id }}</td>
+                <td>{{ d.name }}</td>
+                <td>{{ d.code }}</td>
+                <td>
+                    <a href="/departments/edit/{{ d.id }}/" class="btn edit-btn">Edit</a>
+                    <a href="/departments/delete/{{ d.id }}/"
+                       class="btn delete-btn"
+                       onclick="return confirm('Are you sure you want to delete?')">
+                       Delete
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="/dashboard/" class="btn home-btn">Home</a>
+
+</div>
+
+</body>
+</html>

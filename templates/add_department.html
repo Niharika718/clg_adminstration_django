@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Department</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial;
+            background: linear-gradient(to right, #cf672a, #1c9fc7);
+        }
+
+        .container {
+            width: 40%;
+            margin: 80px auto;
+            background: #eaeaea;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+
+        .btn {
+            padding: 10px 18px;
+            border: none;
+            border-radius: 8px;
+            color: white;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .submit-btn {
+            background: #22c55e;
+            width: 95%;
+        }
+
+        .home-btn {
+            background: #3b82f6;
+            display: inline-block;
+            margin-top: 15px;
+        }
+
+        .back-btn {
+            background: #f59e0b;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .btn:hover {
+            opacity: 0.8;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>Add Department</h2>
+
+    <form method="post">
+        {% csrf_token %}
+
+        <input type="text" name="name" placeholder="Department Name" required>
+        <input type="text" name="code" placeholder="Department Code" required>
+
+        <button type="submit" class="btn submit-btn">Submit</button>
+    </form>
+
+    <br>
+
+    <a href="/departments/" class="btn back-btn">⬅ Back</a>
+    <a href="/dashboard/" class="btn home-btn">Home</a>
+
+</div>
+
+</body>
+</html>
